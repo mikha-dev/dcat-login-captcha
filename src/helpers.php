@@ -11,6 +11,7 @@
 use Gregwar\Captcha\PhraseBuilder;
 use Guanguans\DcatLoginCaptcha\LoginCaptchaServiceProvider;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 if (! function_exists('login_captcha_check')) {
     /**
@@ -19,7 +20,7 @@ if (! function_exists('login_captcha_check')) {
     function login_captcha_check(string $value): bool
     {
         return PhraseBuilder::comparePhrases(
-            Session::get(LoginCaptchaServiceProvider::setting('phrase_session_key')),
+            Session::pull(LoginCaptchaServiceProvider::setting('captcha_phrase_session_key')),
             $value
         );
     }
@@ -32,20 +33,20 @@ if (! function_exists('login_captcha_url')) {
     function login_captcha_url(string $routeName = null): string
     {
         if (is_null($routeName)) {
-            return admin_route('captcha.generate');
+            return admin_route('captcha.generate', ['random' => Str::random()]);
         }
 
-        return admin_route($routeName);
+        return admin_route($routeName, ['random' => Str::random()]);
     }
 }
 
-if (! function_exists('login_captcha_get')) {
+if (! function_exists('login_captcha_content')) {
     /**
      * 获取登录验证码图像内容.
      */
-    function login_captcha_get(int $quality = 90): string
+    function login_captcha_content(int $quality = 90): string
     {
-        Session::put(LoginCaptchaServiceProvider::setting('phrase_session_key'), CaptchaBuilder::getPhrase());
+        Session::put(LoginCaptchaServiceProvider::setting('captcha_phrase_session_key'), CaptchaBuilder::getPhrase());
 
         return CaptchaBuilder::get($quality);
     }

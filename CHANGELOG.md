@@ -2,6 +2,57 @@
 
 All notable changes to `guanguans/dcat-login-captcha` will be documented in this file.
 
+## 1.0.19 - 2022-09-08
+
+* Fix loading config.
+* Remove version update migration.
+* Cancel service late registration.
+
+## 1.0.18 - 2022-09-01
+
+* Update to single action controller.
+* Fix setting.
+* Optimize migration file.
+
+## 1.0.17 - 2022-08-31
+
+* Fix migration file name.
+
+## 1.0.16 - 2022-08-31
+
+* Add migration files.
+
+## 1.0.15 - 2022-08-24
+
+* Fix captcha check.
+
+## 1.0.14 - 2022-07-13
+
+* Rename login_captcha_get -> login_captcha_content.
+* Update github config files.
+
+## 1.0.13 - 2022-05-03
+
+* Update JS.
+
+## 1.0.12 - 2022-04-06
+
+* Bump codecov/codecov-action from 2.1.0 to 3.
+* Update author info.
+
+## 1.0.11 - 2022-04-01
+
+* Rename `phrase_session_key` -> `captcha_phrase_session_key`.
+* Generate captcha random url.
+* Replace `Closure routing` -> `CaptchaController`.
+* Bump actions/cache from 2 to 3.
+* Bump actions/checkout from 2 to 3.
+* Update overtrue/phplint requirement from ^2.3 || ^3.0 to ^2.3 || ^3.0 || ^4.0.
+
+## 1.0.10 - 2021-11-9
+
+* Compatible callback type.
+
 ## 1.0.9 - 2021-10-17
 
 * Add parameters to the `SetResponseContentType` middleware.

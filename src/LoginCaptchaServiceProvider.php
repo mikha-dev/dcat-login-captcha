@@ -12,20 +12,12 @@ namespace Guanguans\DcatLoginCaptcha;
 
 use Dcat\Admin\Admin;
 use Dcat\Admin\Extend\ServiceProvider;
-use Dcat\Admin\Traits\HasFormResponse;
 use Gregwar\Captcha\CaptchaBuilder;
 use Gregwar\Captcha\PhraseBuilder;
 use Illuminate\Support\Facades\Validator;
 
 class LoginCaptchaServiceProvider extends ServiceProvider
 {
-    use HasFormResponse;
-
-    /**
-     * @var bool
-     */
-    protected $defer = true;
-
     /**
      * @var string[]
      */
@@ -40,10 +32,10 @@ class LoginCaptchaServiceProvider extends ServiceProvider
     public function init()
     {
         parent::init();
-
         $this->setupConfig();
+        $this->loadMigrationsFrom(__DIR__.'/../updates/2022_08_31_164022_update_admin_settings_for_dcat_login_captcha.php');
         $this->extendValidator();
-        Admin::booting(BootingHandler::class);
+        Admin::booting($this->app->make(BootingHandler::class));
     }
 
     /**
@@ -97,7 +89,7 @@ class LoginCaptchaServiceProvider extends ServiceProvider
 
         $this->mergeConfigFrom($source, 'login_captcha');
 
-        static::setting() or static::setting(config('login_captcha'));
+        static::setting((array) static::setting() + config('login_captcha'));
     }
 
     /**
@@ -116,20 +108,5 @@ class LoginCaptchaServiceProvider extends ServiceProvider
     public function settingForm()
     {
         return new Setting($this);
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return [
-            PhraseBuilder::class,
-            'gregwar.phrase-builder',
-            CaptchaBuilder::class,
-            'gregwar.captcha-builder',
-        ];
     }
 }

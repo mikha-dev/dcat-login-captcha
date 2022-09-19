@@ -55,4 +55,45 @@ return [
         'Optimize booting `BootingHandler`.',
         'Optimize setting form .',
     ],
+    '1.0.10' => [
+        'Compatible callback type.',
+    ],
+    '1.0.11' => [
+        'Rename `phrase_session_key` -> `captcha_phrase_session_key`.',
+        'Generate captcha random url.',
+        'Replace `Closure routing` -> `CaptchaController`.',
+        'Bump actions/cache from 2 to 3.',
+        'Bump actions/checkout from 2 to 3.',
+        'Update overtrue/phplint requirement from ^2.3 || ^3.0 to ^2.3 || ^3.0 || ^4.0.',
+    ],
+    '1.0.12' => [
+        'Bump codecov/codecov-action from 2.1.0 to 3.',
+        'Update author info.',
+    ],
+    '1.0.13' => [
+        'Update JS.',
+    ],
+    '1.0.14' => [
+        'Rename login_captcha_get -> login_captcha_content.',
+        'Update github config files.',
+    ],
+    '1.0.15' => [
+        'Fix captcha check.',
+    ],
+    '1.0.16' => [
+        'Add migration files.',
+    ],
+    '1.0.17' => [
+        'Fix migration file name.',
+    ],
+    '1.0.18' => [
+        'Update to single action controller.',
+        'Fix setting.',
+        'Optimize migration file.',
+    ],
+    '1.0.19' => [
+        'Fix loading config.',
+        'Remove version update migration.',
+        'Cancel service late registration.',
+    ],
 ];
