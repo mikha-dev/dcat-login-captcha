@@ -1,5 +1,5 @@
 {
-    "name": "guanguans/dcat-login-captcha",
+    "name": "mikha-dev/dcat-login-captcha",
     "description": "Dcat admin login captcha. - Dcat admin 登录验证码。",
     "license": "MIT",
     "type": "library",
@@ -13,28 +13,9 @@
         "laravel",
         "extension"
     ],
-    "authors": [
-        {
-            "name": "<a href='https://github.com/guanguans' target='_blank'>guanguans</a>",
-            "email": "ityaozm@gmail.com",
-            "homepage": "https://www.guanguans.cn",
-            "role": "developer"
-        }
-    ],
-    "homepage": "https://github.com/guanguans/dcat-login-captcha",
-    "support": {
-        "issues": "https://github.com/guanguans/dcat-login-captcha/issues",
-        "source": "https://github.com/guanguans/dcat-login-captcha"
-    },
-    "funding": [
-        {
-            "type": "wechat",
-            "url": "https://www.guanguans.cn/images/wechat.jpeg"
-        }
-    ],
     "require": {
         "php": ">=7.1",
-        "dcat/laravel-admin": "^2.0",
+        "mikha-dev/laravel-admin": "*",
         "gregwar/captcha": "^1.1"
     },
     "require-dev": {
